@@ -8,7 +8,8 @@ import {
   Music,
   Video,
   Brain,
-  LogOut
+  LogOut,
+  Menu
 } from "lucide-react";
 
 import {
@@ -24,7 +25,7 @@ import {
   AuthContext
 } from "../context/AuthContext";
 
-function Sidebar() {
+function Sidebar({ setSidebarOpen }) {
 
   const location = useLocation();
 
@@ -82,27 +83,42 @@ function Sidebar() {
   ];
 
   return (
-    <div className="w-72 md:w-72 bg-black text-white min-h-screen p-5 flex flex-col justify-between">
+    <div className="w-72 md:w-72 bg-black text-white min-h-screen p-4 flex flex-col justify-between">
 
       <div>
 
-        <h1 className="text-3xl font-bold mb-5">
-          ToolHub
-        </h1>
+        <div className="flex items-center gap-3 mb-6">
+
+          <button onClick={() => setSidebarOpen(false)} className="md:hidden">
+            <Menu size={28} />
+          </button>
+
+    
+          <Link to="/">
+            <h1 className="text-2xl font-bold cursor-pointer hover:text-gray-300 transition">
+              ToolHub
+            </h1> 
+          </Link>
+
+        </div>
+
+        {/* User display information */}
 
         {
-  user && (
-    <div className="pb-3 mb-4 text-sm text-gray-400">
+          user && (
+            <div className="pb-3 mb-4 text-sm text-gray-400">
 
-      Logged in as
+              Logged in as
 
-      <span className="block text-white font-semibold">
-        {user.username}
-      </span>
+              <span className="block text-white font-semibold">
+                {user.username}
+              </span>
 
-    </div>
-  )
-}
+            </div>
+          )
+        }
+
+        {/* TOOLS */}
 
         <div className="space-y-3">
 
@@ -112,20 +128,21 @@ function Sidebar() {
               <Link
                 key={index}
                 to={tool.path}
+                onClick={() => setSidebarOpen(false)}
                 className={`
-                flex
-                items-center
-                gap-3
-                p-3
-                rounded-xl
-                transition
+                  flex
+                  items-center
+                  gap-3
+                  p-3
+                  rounded-xl
+                  transition
 
-                ${
-                location.pathname === tool.path
-                ? "bg-white text-black"
-                : "hover:bg-gray-800"
+                  ${
+                    location.pathname === tool.path
+                      ? "bg-white text-black"
+                      : "hover:bg-gray-800"
                   }
-              `}
+                `}
               >
 
                 {tool.icon}
@@ -142,26 +159,14 @@ function Sidebar() {
 
       </div>
 
-      {/* USER SECTION */}
+      {/* LOGOUT */}
 
       {
         user && (
 
-          <div className="mt-3">
+          <div className="mt-6">
 
-            <button
-              onClick={logout}
-              className="
-                flex
-                items-center
-                gap-3
-                p-3
-                rounded-xl
-                hover:bg-red-600
-                transition
-                w-full
-              "
-            >
+            <button onClick={logout} className="flex items-center mb-40 gap-3 p-3 rounded-xl hover:bg-red-600 transition w-full border-2 bg-red-700">
 
               <LogOut size={20} />
 

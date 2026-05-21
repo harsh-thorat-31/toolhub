@@ -17,7 +17,7 @@ function MainLayout({ children }) {
 
       <div className="hidden md:block">
 
-        <Sidebar />
+        <Sidebar setSidebarOpen={setSidebarOpen} />
 
       </div>
 
@@ -39,7 +39,7 @@ function MainLayout({ children }) {
 
             <div className="relative z-50">
 
-              <Sidebar />
+              <Sidebar setSidebarOpen={setSidebarOpen} />
 
             </div>
 
