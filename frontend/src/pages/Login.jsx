@@ -83,7 +83,7 @@ function Login() {
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-5">
 
-      <Card className="w-full max-w-md">
+      <Card className="w-full max-w-md mb-15">
 
         <h1 className="text-3xl font-bold mb-6">
           Login
