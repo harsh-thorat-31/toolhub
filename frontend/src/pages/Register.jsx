@@ -73,7 +73,7 @@ function Register() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center items-center p-5">
+    <div className="flex-1 flex justify-center items-center p-5">
 
       <Card className="w-full max-w-md">
 

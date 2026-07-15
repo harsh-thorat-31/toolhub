@@ -119,7 +119,7 @@ function CodeFormatter() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-5">
+    <div className="flex-1 p-5">
 
       <Card className="w-full">
 

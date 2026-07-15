@@ -166,7 +166,7 @@ function Sidebar({ setSidebarOpen }) {
 
           <div className="mt-6">
 
-            <button onClick={logout} className="flex items-center mb-40 gap-3 p-3 rounded-xl hover:bg-red-600 transition w-full border-2 bg-red-700">
+            <button onClick={logout} className="flex items-center mb-2 gap-3 p-3 rounded-xl hover:bg-red-600 transition w-full border-2 bg-red-700">
 
               <LogOut size={20} />
 

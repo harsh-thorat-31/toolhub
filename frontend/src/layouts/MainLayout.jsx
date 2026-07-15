@@ -1,14 +1,24 @@
 import {
-  useState
+  useState,
+  useContext
 } from "react";
 
 import Sidebar from "../components/Sidebar";
-
 import MobileNavbar from "../components/MobileNavbar";
+import { AuthContext } from "../context/AuthContext";
 
 function MainLayout({ children }) {
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { user } = useContext(AuthContext);
+
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-gray-100 flex flex-col">
+        {children}
+      </div>
+    );
+  }
 
   return (
     <div className="flex min-h-screen bg-gray-100">
@@ -49,13 +59,15 @@ function MainLayout({ children }) {
 
       {/* MAIN CONTENT */}
 
-      <div className="flex-1">
+      <div className="flex-1 flex flex-col min-h-screen">
 
         <MobileNavbar
           setSidebarOpen={setSidebarOpen}
         />
 
-        {children}
+        <div className="flex-1 flex flex-col">
+          {children}
+        </div>
 
       </div>
 

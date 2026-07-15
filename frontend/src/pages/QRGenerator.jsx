@@ -22,7 +22,7 @@ function QRGenerator() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center items-center p-5">
+    <div className="flex-1 flex justify-center items-center p-5">
 
       <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
 
